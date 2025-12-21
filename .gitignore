@@ -1,4 +1,20 @@
+# Laravel
+app/vendor/
+app/node_modules/
+app/.env
+app/.env.*
+
+# Logs & cache
+app/storage/logs/
+app/bootstrap/cache/
+
+# Python / ML
 MachineLearning/data
 MachineLearning/nlp
 MachineLearning/src/__pycache__
+
+# OS
+.DS_Store
+Thumbs.db
+
 cek_path.py
