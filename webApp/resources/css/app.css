@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @config "../../tailwind.config.js";
-@import "flowbite/src/themes/default";
+@source "../../node_modules/flowbite-datepicker";
+/* @import "flowbite/src/themes/default"; */
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';

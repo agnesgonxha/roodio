@@ -2,34 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=dennpvice-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ROODIO - Register</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script type="text/javascript" src="{{ asset('js/design/register-bg.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('js/design/particle-network.js') }}" defer></script>
-    <script src="https://unpkg.com/flowbite-datepicker@1.3.2/dist/js/datepicker.min.js"></script>
     <script src="{{ asset('js/auth/register.js') }}" defer></script>
+    <script src="https://unpkg.com/flowbite-datepicker@1.3.2/dist/js/datepicker.min.js" defer></script>
 </head>
 <body class='min-h-screen bg-primary-100 overflow-x-hidden'>
-    <div class='relative w-screen min-h-screen justify-items-center items-center'>
+    <div class='relative w-screen min-h-screen justify-items-center items-center pb-10'>
         <div id="particle-canvas"></div>
-        <div class='absolute z-10 border-primary-30 border-4 hover:bg-secondary-happy-10/80 transition-colors active:bg-secondary-happy-10/80 ease-linear duration-150 rounded-4xl bg-secondary-happy-10/70 w-sm min-h-8 h-max top-9 p-8 pt-5 font-secondaryAndButton rounded-3xl shadow-xl shadow-primary-20/40'>
+        <div class='absolute z-10 border-primary-30 border-4 hover:bg-secondary-happy-10/85 transition-colors active:bg-secondary-happy-10/80 ease-linear duration-150 rounded-4xl bg-secondary-happy-10/70 w-sm min-h-8 h-max top-9 p-8 pt-5 font-secondaryAndButton rounded-3xl shadow-xl shadow-primary-20/40'>
             <div class='flex flex-col items-center gap-1'>
-                <img src="{{ asset('assets/logo-with-text.png') }}" alt="logo" class='w-24'>
+                <img src="{{ asset('assets/logo-with-text.png') }}" alt="logo" class='w-24 drop-shadow-sm drop-shadow-primary-50'>
                 <p class='font-primary text-subtitle font-bold tracking-widest text-primary-85'>SIGN UP</p>
             </div>
-            <p class='text-center text-primary-50 text-body-size mb-4 -mt-1.5'>Let's join for amazing experience!</p>
+            <p class='text-center text-primary-50 text-small mb-4 -mt-1.5'>Let's join for amazing experience!</p>
             <div>
                 <form action="" method="POST" id='identity'>
-                    <div class='flex flex-col mb-7'>
+                    <div class='flex flex-col mb-10'>
                         <label for="fullname" class='text-body-size flex flex-row mb-2'>
                             <img src="{{ asset('assets/icon/name.svg') }}" alt="name" class='w-6 mr-1'>
                             <p class='text-primary-85 text-body-size'>Fullname</p>
                         </label>
                         <input type="text" name="fullname" id="fullname" autocomplete="off" required placeholder="Ex: John Doe" class='not-placeholder-shown:bg-accent-20/60 not-placeholder-shown:text-shadedOfGray-100 text-small outline-none border-b rounded-md px-1.5 py-0.5 border-shadedOfGray-50 placeholder:text-micro placeholder:italic focus:border-amber-600 focus:border-b-2 focus:bg-secondary-happy-20/50 ease-in-out duration-150 hover:bg-shadedOfGray-20/90 md:text-body-size md:h-8 md:placeholder:text-small'>
                     </div>
-                    <div class='flex flex-col mb-7'>
+                    <div class='flex flex-col mb-10'>
                         <label for="email" class='text-body-size flex flex-row mb-2'>
                             <img src="{{ asset('assets/icon/email.svg') }}" alt="email" class='w-6 mr-1'>
                             <p class='text-primary-85 text-body-size'>Email</p>
@@ -37,19 +37,19 @@
                         <input type="email" name="email" id="email" autocomplete="off" required placeholder="Ex: john.doe@gmail.com" class='not-placeholder-shown:bg-accent-20/60 not-placeholder-shown:text-shadedOfGray-100 text-small outline-none border-b rounded-md px-1.5 py-0.5 border-shadedOfGray-50 placeholder:text-micro placeholder:italic focus:border-amber-600 focus:border-b-2 focus:bg-secondary-happy-20/50 ease-in-out duration-150 hover:bg-shadedOfGray-20/90 md:text-body-size md:h-8 md:placeholder:text-small'>
                     </div>
                     <div class='flex flex-row items-start justify-between'>
-                        <div class='flex flex-col mb-7'>
+                        <div class='flex flex-col mb-10'>
                             <label for="dob" class='text-body-size flex flex-row mb-2'>
                                 <img src="{{ asset('assets/icon/date.svg') }}" alt="email" class='w-6 mr-1'>
                                 <p class='text-primary-85 text-body-size'>Date of Birth</p>
                             </label>
-                            <input datepicker id="default-datepicker" name='dob' type="text" autocomplete="off" required placeholder="mm-dd-yyyy" class="not-placeholder-shown:bg-accent-20/60 not-placeholder-shown:text-shadedOfGray-100 w-32 text-small outline-none border-b rounded-md px-1.5 py-0.5 border-shadedOfGray-50 placeholder:text-micro placeholder:italic focus:border-amber-600 focus:border-b-2 focus:bg-secondary-happy-20/50 ease-in-out duration-150 hover:bg-shadedOfGray-20/90 md:text-body-size md:h-8 md:placeholder:text-small">
+                            <input datepicker id="default-datepicker" name='dob' type="text" autocomplete="off" required placeholder="mm/dd/yyyy" class="not-placeholder-shown:bg-accent-20/60 not-placeholder-shown:text-shadedOfGray-100 w-32 text-small outline-none border-b rounded-md px-1.5 py-0.5 border-shadedOfGray-50 placeholder:text-micro placeholder:italic focus:border-amber-600 focus:border-b-2 focus:bg-secondary-happy-20/50 ease-in-out duration-150 hover:bg-shadedOfGray-20/90 md:text-body-size md:h-8 md:placeholder:text-small">
                         </div>
-                        <div class='flex flex-col mb-7'>
+                        <div class='flex flex-col mb-10'>
                             <label for="gender" class='text-body-size flex flex-row mb-2'>
                                 <img src="{{ asset('assets/icon/gender.svg') }}" alt="gender" class='w-6 mr-1'>
                                 <p class='text-primary-85'>Gender</p>
                             </label>
-                            <select name="gender" id="gender" class="gender-select w-40 mt-0.5 text-small outline-none border-b rounded-md px-1.5 py-0.5 border-shadedOfGray-50 text-shadedOfGray-60 italic focus:border-amber-600 focus:border-b-2 ease-in-out duration-150 hover:bg-shadedOfGray-20/90 md:text-body-size md:h-8">
+                            <select name="gender" id="gender" autocomplete="off" required class="gender-select w-40 mt-0.5 text-small outline-none border-b rounded-md px-1.5 py-0.5 border-shadedOfGray-50 text-shadedOfGray-60 italic focus:border-amber-600 focus:border-b-2 ease-in-out duration-150 hover:bg-shadedOfGray-20/90 md:text-body-size md:h-8">
                                 <option value="" disabled hidden selected>Gender</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -57,12 +57,12 @@
                             </select>
                         </div>
                     </div>
-                    <div class='flex flex-col mb-7'>
-                        <label for="country" class='text-body-size flex flex-row mb-2'>
+                    <div class='flex flex-col mb-11'>
+                        <label for="country" class='text-body flex flex-row mb-2'>
                                 <img src="{{ asset('assets/icon/country.svg') }}" alt="country" class='w-6 mr-1'>
                                 <p class='text-primary-85'>Country</p>
                         </label>
-                        <select autocomplete="country" id="country" name="country" required class="country-select w-full mt-0.5 text-small outline-none border-b rounded-md px-1.5 py-0.5 border-shadedOfGray-50 text-shadedOfGray-60 italic focus:border-amber-600 focus:border-b-2 ease-in-out duration-150 hover:bg-shadedOfGray-20/90 md:text-body-size md:h-8">
+                        <select autocomplete="country" id="country" name="country" autocomplete="off" required class="country-select w-full mt-0.5 text-small outline-none border-b rounded-md px-1.5 py-0.5 border-shadedOfGray-50 text-shadedOfGray-60 italic focus:border-amber-600 focus:border-b-2 ease-in-out duration-150 hover:bg-shadedOfGray-20/90 md:text-body md:h-8">
                             <option value="" disabled hidden selected>Select your country...</option>
                             <option value="AF">Afghanistan</option>
                             <option value="AX">Åland Islands</option>
@@ -318,10 +318,6 @@
                             <option value="ZW">Zimbabwe</option>
                         </select>
                     </div>
-                    {{-- <div>
-                        <button type='submit' form='identity'>Sign Up</button>
-                        <p>Already have account? <a href="/login">Let's Login!</a></p>
-                    </div> --}}
                     <div>
                         <button type="submit" class='text-smallBtn font-bold w-full font-secondaryAndButton bg-primary-10 text-primary-100 rounded-2xl py-1 mb-2 cursor-pointer hover:bg-primary-50 hover:text-white ease-in-out duration-150'>Sign Up</button>
                         <p class='text-micro text-center md:text-small'>Already have account? <a href="/login" class='font-bold text-secondary-sad-100 hover:text-primary-50'>Let's Login!</a></p>

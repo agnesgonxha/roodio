@@ -19,8 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setupSelect('gender');
   setupSelect('country');
-
-
+  
   const input = document.getElementById('default-datepicker');
   if (!input) return;
 
