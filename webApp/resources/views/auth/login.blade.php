@@ -8,6 +8,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script type="text/javascript" src="{{ asset('js/design/login-bg.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('js/design/particle-network.js') }}" defer></script>
+    <script type="text/javascript" src="{{ asset('js/auth/auth.js') }}" defer></script>
+    <script type="text/javascript" src="{{ asset('js/auth/login.js') }}" defer></script>
 </head>
 <body>
     <div class='grid w-screen h-screen bg-primary-100 overflow-hidden justify-items-center items-center mx-auto'>
@@ -23,21 +25,21 @@
             </div>
             <p class='font-secondaryAndButton -mt-3 text-small text-primary-50 md:text-body-size md:-mt-9 md:tracking-[.05rem]'>Welcome back to ROODIO!</p>
             <div class='font-secondaryAndButton text-body-size flex justify-center w-75 h-max'>
-                <form action="{{ route('auth.login') }}" method='POST'>
-                    @csrf
-                    <div class='flex flex-col w-3xs mb-8 md:w-sm md:mb-11'>
+                <form action="{{ route('auth.login') }}" method='POST' id='login'>
+                    @csrf {{-- cross site request forgery --}}
+                    <div class='flex flex-col w-3xs mb-5 md:w-sm md:mb-8'>
                         <label for="username" class='mb-1 text-primary-70 md:mb-1.5'>
                             <img src="{{ asset('assets/icons/user.svg') }}" alt="user" class='w-5 inline'>
                             <p class='align-middle inline'>Username</p>
                         </label>
-                        <input type="text" name="username" id="username" autocomplete="off" required value="{{ old('username') }}" placeholder="Input your username..." class='not-placeholder-shown:bg-accent-20/60 not-placeholder-shown:text-shadedOfGray-100 text-small outline-none border-b rounded-md px-1.5 py-0.5 border-shadedOfGray-50 placeholder:text-micro focus:border-secondary-happy-100 focus:border-b-2 focus:bg-secondary-happy-20/50 ease-in-out duration-150 hover:bg-shadedOfGray-20/90 md:text-body-size md:h-8 md:placeholder:text-small'>
-                        @error('username')
-                            <div class="text-error-moderate">
+                        <input type="text" name="username" id="username" autocomplete="off" value="{{ old('username') }}" placeholder="Input your username..." class='not-placeholder-shown:bg-accent-20/60 not-placeholder-shown:text-shadedOfGray-100 text-small outline-none border-b rounded-md px-1.5 py-0.5 border-shadedOfGray-50 placeholder:text-micro focus:border-secondary-happy-100 focus:border-b-2 focus:bg-secondary-happy-20/50 ease-in-out duration-150 hover:bg-shadedOfGray-20/90 md:text-body-size md:h-8 md:placeholder:text-small'>
+                        <div class="text-error-moderate text-xs h-3 pt-0.5 md:text-small">
+                            @error('username')
                                 {{ $message }}
-                            </div>
-                        @enderror
+                            @enderror
+                        </div>
                     </div>
-                    <div class='flex flex-col w-3xs relative mb-10 md:w-sm md:mb-11'>
+                    <div class='flex flex-col w-3xs relative mb-7 md:w-sm md:mb-9'>
                         <label for="password" class='mb-1 text-primary-70 relative'>
                             <img src="{{ asset('assets/icons/password.svg') }}" alt="password" class='w-5 inline'>
                             <p class='align-middle inline'>
@@ -46,19 +48,21 @@
                             </p>
 
                         </label>
-                        <input type="password" name="password" id="password" autocomplete="off" required placeholder="Input your password..." class='not-placeholder-shown:bg-accent-20/60 not-placeholder-shown:text-shadedOfGray-100 text-small outline-none border-b rounded-md px-1.5 py-0.5 border-shadedOfGray-50 placeholder:text-micro focus:border-secondary-happy-100 focus:border-b-2 focus:bg-secondary-happy-20/50 ease-in-out duration-150 hover:bg-shadedOfGray-20/90 md:text-body-size md:h-8 md:placeholder:text-small pr-8'>
-                        <button type='button' id='showPass' class='w-4 h-4 absolute right-1.5 bottom-1.5 flex items-center justify-center cursor-pointer md:bottom-2 md:right-2'>
-                            <img src="{{ asset('assets/icons/eye-closed.svg') }}" alt="eye-closed">
-                            <span class='absolute invisible' id='eye-open'>&#128065;</span>
-                        </button>
-                        @error('password')
-                            <div class="text-error-moderate">
+                        <div class='relative'>
+                            <input type="password" name="password" id="password" autocomplete="off" placeholder="Input your password..." class='not-placeholder-shown:bg-accent-20/60 not-placeholder-shown:text-shadedOfGray-100 text-small outline-none border-b rounded-md px-1.5 py-0.5 w-full border-shadedOfGray-50 placeholder:text-micro focus:border-secondary-happy-100 focus:border-b-2 focus:bg-secondary-happy-20/50 ease-in-out duration-150 hover:bg-shadedOfGray-20/90 md:text-body-size md:h-8 md:placeholder:text-small pr-8'>
+                            <button type='button' id='showPass' class='w-4 h-4 absolute right-1.5 bottom-1.5 flex items-center justify-center cursor-pointer md:bottom-2 md:right-2'>
+                                <img src="{{ asset('assets/icons/eye-closed.svg') }}" alt="eye-closed" id='eye-closed'>
+                                <span class='absolute invisible' id='eye-open'>&#128065;</span>
+                            </button>
+                        </div>
+                        <div class="text-error-moderate text-xs h-3 pt-0.5 md:text-small">
+                            @error('password')
                                 {{ $message }}
-                            </div>
-                        @enderror
+                            @enderror
+                        </div>
                     </div>
                     <div class='mb-4'>
-                        <button type="submit" class='text-smallBtn font-bold w-3xs font-secondaryAndButton bg-primary-10 text-primary-100 rounded-2xl py-1 mb-2 cursor-pointer hover:bg-primary-50 hover:text-white ease-in-out duration-150 md:w-sm md:h-11'>Login</button>
+                        <button type="submit" form='login' class='text-smallBtn font-bold w-3xs font-secondaryAndButton bg-primary-10 text-primary-100 rounded-2xl py-1 mb-2 cursor-pointer hover:bg-primary-50 hover:text-white ease-in-out duration-150 md:w-sm md:h-11'>Login</button>
                         <p class='text-micro text-center md:text-small'>Don't have account? <a href="/sign-up" class='font-bold text-secondary-sad-100 hover:text-primary-50'>Sign Up Here!</a></p>
                     </div>
                 </form>
