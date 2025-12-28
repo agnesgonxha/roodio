@@ -3,6 +3,7 @@ namespace App\Models;
 
 use DB;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Thread extends Model
 {
@@ -27,5 +28,10 @@ class Thread extends Model
                 $model->id = 'TH-' . str_pad($number, 7, '0', STR_PAD_LEFT);
             }
         });
+    }
+
+    public function replies(): HasMany
+    {
+        return $this->hasMany(Reply::class, 'threadId', 'id');
     }
 }

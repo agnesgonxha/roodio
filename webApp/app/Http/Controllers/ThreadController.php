@@ -45,14 +45,6 @@ class ThreadController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Thread $thread)
-    {
-        return view('threads.detail', compact('thread'));
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
@@ -90,6 +82,17 @@ class ThreadController extends Controller
         $reply['threadId'] = $thread->id;
 
         Reply::create($reply);
-        return redirect()->route('thread.show', $thread)->with('succes', 'berhasil membuat reply');
+        return redirect()->route('thread.index', $thread)->with('succes', 'berhasil membuat reply');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function react(Thread $thread)
+    {
+        $react['userId']   = Auth::id();
+        $react['threadId'] = $thread->id;
+
+        Reply::create($react);
     }
 }

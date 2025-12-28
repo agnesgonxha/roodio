@@ -15,7 +15,30 @@
             <p>{{ $thread->content }}</p>
         </div>
         <div class="">
-            <a href="{{route('thread.show', $thread->id)}}">View Detail</a>
+            @session('succes')
+            <strong>Success! {{ $value }}</strong>
+            @endsession
+            @forelse($thread->replies as $reply)
+                <p>{{ $reply->content }}</p>
+            @empty
+            @endforelse
+            <div class="">
+                <p>Reaction</p>
+            </div>
+            <div class="">
+                <form action="{{ route('thread.reply', $thread) }}" method="POST">
+                    @csrf
+                    <label for="content">Reply:</label>
+                    <textarea name="content" class="border"></textarea>
+                    <button type="submit">send</button>
+                </form>
+                @error('content')
+                    {{ $message }}
+                @enderror
+            </div>
+            <div class="mt-10">
+                <a href="{{route('thread.index')}}">Back</a>
+            </div>
         </div>
     </div>
     @empty
