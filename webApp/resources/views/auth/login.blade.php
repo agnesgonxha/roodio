@@ -8,6 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script type="text/javascript" src="{{ asset('js/design/login-bg.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('js/design/particle-network.js') }}" defer></script>
+    <script type="text/javascript" src="{{ asset('js/auth/auth.js') }}" defer></script>
 </head>
 <body>
     <div class='grid w-screen h-screen bg-primary-100 overflow-hidden justify-items-center items-center mx-auto'>
@@ -48,7 +49,7 @@
                         </label>
                         <input type="password" name="password" id="password" autocomplete="off" required placeholder="Input your password..." class='not-placeholder-shown:bg-accent-20/60 not-placeholder-shown:text-shadedOfGray-100 text-small outline-none border-b rounded-md px-1.5 py-0.5 border-shadedOfGray-50 placeholder:text-micro focus:border-secondary-happy-100 focus:border-b-2 focus:bg-secondary-happy-20/50 ease-in-out duration-150 hover:bg-shadedOfGray-20/90 md:text-body-size md:h-8 md:placeholder:text-small pr-8'>
                         <button type='button' id='showPass' class='w-4 h-4 absolute right-1.5 bottom-1.5 flex items-center justify-center cursor-pointer md:bottom-2 md:right-2'>
-                            <img src="{{ asset('assets/icons/eye-closed.svg') }}" alt="eye-closed">
+                            <img src="{{ asset('assets/icons/eye-closed.svg') }}" alt="eye-closed" id='eye-closed'>
                             <span class='absolute invisible' id='eye-open'>&#128065;</span>
                         </button>
                         @error('password')
