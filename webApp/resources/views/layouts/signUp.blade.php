@@ -1,9 +1,11 @@
 @extends('layouts/master')
 
+
 @push('script')
     <script type="text/javascript" src="{{ asset('js/design/register-bg.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('js/design/particle-network.js') }}" defer></script>
 @endpush
+
 
 @section('bodyContent')
     <div class='relative w-screen min-h-screen justify-items-center items-center'>
