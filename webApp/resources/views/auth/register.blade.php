@@ -23,32 +23,11 @@
 @section('content')
     <form action="{{ route('auth.register') }}" method="POST" id='identity'>
         @csrf
-        <div class='flex flex-col mb-6'>
-            <label for="fullname" class='text-body-size flex flex-row mb-2'>
-                <img src="{{ asset('assets/icons/name.svg') }}" alt="name" class='w-6 mr-1'>
-                <p class='text-primary-85 text-body-size'>Fullname<span class='text-danger'>*</span></p>
-            </label>
-            <input type="text" name="fullname" id="fullname" autocomplete="off" placeholder="Ex: John Doe" class='not-placeholder-shown:bg-accent-20/60 not-placeholder-shown:text-shadedOfGray-100 text-small outline-none border-b rounded-md px-1.5 py-0.5 border-shadedOfGray-50 placeholder:text-micro placeholder:italic focus:border-secondary-happy-100 focus:border-b-2 focus:bg-secondary-happy-20/50 ease-in-out duration-150 hover:bg-shadedOfGray-20/90 md:text-body-size md:h-8 md:placeholder:text-small {{ $errors->has('fullname') ? 'border-error-dark border-b-2 bg-error-lighten/30' : 'border-shadedOfGray-50' }}'>
-            <div class="text-error-moderate h-3 pt-0.5 text-micro md:text-small">
-                @error('fullname')
-                    {{ $message }}
-                @enderror
-            </div>
-        </div>
-        <div class='flex flex-col mb-6'>
-            <label for="email" class='text-body-size flex flex-row mb-2'>
-                <img src="{{ asset('assets/icons/email.svg') }}" alt="email" class='w-6 mr-1'>
-                <p class='text-primary-85 text-body-size'>Email<span class='text-danger'>*</span></p>
-            </label>
-            <input type="email" name="email" id="email" inputmode="email" autocomplete="off" placeholder="Ex: john.doe@gmail.com" class='not-placeholder-shown:bg-accent-20/60 not-placeholder-shown:text-shadedOfGray-100 text-small outline-none border-b rounded-md px-1.5 py-0.5 border-shadedOfGray-50 placeholder:text-micro placeholder:italic focus:border-secondary-happy-100 focus:border-b-2 focus:bg-secondary-happy-20/50 ease-in-out duration-150 hover:bg-shadedOfGray-20/90 md:text-body-size md:h-8 md:placeholder:text-small {{ $errors->has('email') ? 'border-error-dark border-b-2 bg-error-lighten/30' : 'border-shadedOfGray-50' }}'>
-            <div class="text-error-moderate h-3 pt-0.5 text-micro md:text-small">
-                @error('email')
-                    {{ $message }}
-                @enderror
-            </div>
-        </div>
+        <x-input id='fullname' icon='name' label='Fullname' placeholder='Ex: John Doe'></x-input>
+        <x-input type='email' id='email' icon='email' label='Email' placeholder='Ex: john.doe@gmail.com'></x-input>
         <div class='flex flex-row items-start justify-between mb-6'>
-            <div class='flex flex-col'>
+            <x-input datepicker type='text' id='dob' icon='date' label='Date of Birth' placeholder='mm/dd/yyyy' class='grow'></x-input>
+            {{-- <div class='flex flex-col'>
                 <label for="dob" class='text-body-size flex flex-row mb-2'>
                     <img src="{{ asset('assets/icons/date.svg') }}" alt="email" class='w-6 mr-1'>
                     <p class='text-primary-85 text-body-size'>Date of Birth<span class='text-danger'>*</span></p>
@@ -59,8 +38,8 @@
                         {{ $message }}
                     @enderror
                 </div>
-            </div>
-            <div class='flex flex-col'>
+            </div> --}}
+            <div class='flex flex-col grow-3'>
                 <label for="gender" class='text-body-size flex flex-row mb-2'>
                     <img src="{{ asset('assets/icons/gender.svg') }}" alt="gender" class='w-6 mr-1'>
                     <p class='text-primary-85'>Gender<span class='text-danger'>*</span></p>

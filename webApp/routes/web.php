@@ -44,3 +44,7 @@ Route::get('/sign-up', function () {
 Route::get('/forget-password', function () {
     return view('auth/forgetPass');
 });
+
+Route::get('/develop', function () {
+    return view('components.input');
+});
