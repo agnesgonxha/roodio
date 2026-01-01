@@ -1,12 +1,17 @@
 @extends('layouts.master')
 
 
+@section('title', 'ROODIO - SignUp')
+
+
 @push('script')
     <script type="text/javascript" src="{{ asset('js/design/signUp-bg.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('js/design/particle-network.js') }}" defer></script>
 @endpush
 
+
 @section('bodyClass', 'relative')
+
 
 @section('bodyContent')
     <div id="particle-canvas" class='relative min-h-lvh h-screen z-1'></div>

@@ -71,8 +71,8 @@ class AuthController extends Controller
         $request->validate([
             'otp' => 'required|digits:6',
         ], [
-            'otp.required' => 'OTP Code must be completed.',
-            'otp.digits'   => 'OTP COde must be 6 digit.',
+            'otp.required' => 'OTP code must be completed.',
+            'otp.digits'   => 'OTP code must be 6 digits.',
         ]);
 
         $session = session('register.step1');

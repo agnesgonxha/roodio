@@ -33,15 +33,21 @@
 @endphp
 
 <div class='flex flex-col p-1 h-max mb-6 w-full'>
-    <label for="{{ $name }}" class='text-small flex flex-row mb-1 md:text-body-size'>
-        @isset($icon)
-            <img src="{{ asset('assets/icons/'. $icon .'.svg') }}" alt='{{ $icon }}' class='w-5 mr-1.5 md:w-6 lg:w-7'>
-        @endisset
+    <label for="{{ $name }}" class='relative w-full text-small mb-1 md:text-body-size'>
+        <div class='flex flex-row'>
+            @isset($icon)
+                <img src="{{ asset('assets/icons/'. $icon .'.svg') }}" alt='{{ $icon }}' class='w-5 mr-1.5 md:w-6 lg:w-7'>
+            @endisset
 
-        @isset($label)
-            <p class='text-primary-85'>
-                {{ $label }}@if ($isRequired)<span class='text-error-dark'>*</span>@endif
-            </p>
+            @isset($label)
+                <p class='text-primary-85'>
+                    {{ $label }}@if ($isRequired)<span class='text-error-dark'>*</span>@endif
+                </p>
+            @endisset
+        </div>
+
+        @isset($additionalLabelButton)
+            {{ $additionalLabelButton }}
         @endisset
     </label>
 

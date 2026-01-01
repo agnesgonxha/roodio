@@ -6,9 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
-    canvasDiv.style.width = 'inherit';
-    canvasDiv.style.height = 'inherit';
-    canvasDiv.classList.add('col-start-1', 'row-start-1', 'z-1');
+    canvasDiv.style.width = '100%';
 
     const options = {
         particleColor: ['#FFC48D', '#B6A5E7', '#8EE0B1', '#F49DA0'],

@@ -8,7 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class='bg-primary-100 h-screen flex items-center justify-center mx-8'>
-    <div class=' flex flex-col w-full h-max items-center md:flex-row md:justify-center'>
+    <div class=' flex flex-col w-full h-max items-center lg:flex-row lg:justify-center'>
         <div class='w-72 mb-1 md:w-80'>
             <img src="{{ asset("assets/404.png") }}" alt="404">
         </div>
