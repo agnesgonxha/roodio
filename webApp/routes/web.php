@@ -10,11 +10,16 @@ Route::get('/', function () {
     return view('errors.503');
 })->name('welcome');
 
+// Song Route 
 Route::get('/songs/create', [SongController::class, 'create'])->name('songs.create');
 
 // Auth Route
 Route::get('/login', [AuthController::class, 'loginView'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+Route::get('/user-verification', [AuthController::class, 'userVerificationView'])->name('user.verification');
+Route::post('/user-verification', [AuthController::class, 'userVerification'])->name('auth.user.verification');
+Route::get('/forget-pasword', [AuthController::class, 'forgetPasswordView'])->name('forgetPassword');
+Route::post('/forget-password', [AuthController::class, 'forgetPassword'])->name('auth.forgetPassword');
 Route::get('/sign-up', [AuthController::class, 'registerView'])->name('register');
 Route::post('/sign-up', [AuthController::class, 'register'])->name('auth.register');
 Route::get('/otp-authentication', [AuthController::class, 'registerValidationView'])->name('register.validation');
@@ -37,10 +42,7 @@ Route::post('/threads', [ThreadController::class, 'store'])->middleware('auth')-
 Route::post('/threads/{thread}/reply', [ThreadController::class, 'reply'])->middleware('auth')->name('thread.reply');
 // Route::post('/threads/{threadId}/reaction', [ThreadController::class, 'react'])->middleware('auth')->name('thread.react');
 
-Route::get('/forget-password', function () {
-    return view('auth/forgetPass');
-});
-
+// Dev Route Preview
 Route::get('/pageDevelop', function () {
-    return view('layouts.error');
+    return view('errors.500');
 });

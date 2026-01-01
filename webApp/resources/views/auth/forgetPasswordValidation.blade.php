@@ -1,1 +1,1 @@
-<x-otp route='auth.register.validation'></x-otp>
+<x-otp route='auth.user.verification'></x-otp>

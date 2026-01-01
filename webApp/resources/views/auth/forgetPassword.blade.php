@@ -23,7 +23,7 @@
 
 
 @section('content')
-    <form action="{{ route('auth.login') }}" method='POST' id='changePassword'>
+    <form action="{{ route('auth.forgetPassword') }}" method='POST' id='changePassword'>
         @csrf {{-- cross site request forgery --}}
         <x-input type='password' id='password' icon='password' label='New Password' placeholder='Your new password...'>
             <x-slot:additionalContent>

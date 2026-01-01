@@ -32,6 +32,30 @@ class AuthController extends Controller
         return back()->with('failed', 'Failed to login!');
     }
 
+    public function userVerificationView()
+    {
+        return view('auth.forgetPasswordValidation');
+    }
+
+    public function userVerification()
+    {
+        // the logic is not yet
+
+        return redirect()->route('forgetPassword');
+    }
+
+    public function forgetPasswordView()
+    {
+        return view('auth.forgetPassword');
+    }
+
+    public function forgetPassword()
+    {
+        //the logic is not yet
+
+        return redirect()->route('login');
+    }
+
     public function registerView()
     {
         $regions = Region::orderBy('id')->get();
