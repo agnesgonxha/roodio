@@ -42,12 +42,11 @@
             <x-slot:options>
                 @forelse($regions as $region)
                     <option value="{{ $region->id }}" {{ old('country') == $region->id ? 'selected' : '' }}>{{ $region->name }}</option>
-                @empty
                 @endforelse
             </x-slot:options>
         </x-inputSelect>
         <div>
-            <button type="submit" id='identityBtn' form='identity' class='text-smallBtn font-bold w-full font-secondaryAndButton bg-primary-10 text-primary-100 rounded-2xl py-1 mb-2 cursor-pointer hover:bg-primary-50 hover:text-white ease-in-out duration-150'>Sign Up</button>
+            <x-button behaviour='action' actionType='submit' form='identity' content='Sign Up' class='min-w-full'></x-button>
             <p class='text-micro text-center md:text-small'>Already have account? <a href="/login" class='font-bold text-secondary-sad-100 hover:text-primary-50'>Let's Login!</a></p>
         </div>
     </form>

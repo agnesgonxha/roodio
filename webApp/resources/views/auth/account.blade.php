@@ -40,8 +40,6 @@
                 </button>
             </x-slot:additionalContent>
         </x-input>
-        <div>
-            <button type='submit' form='account' class='text-smallBtn font-bold w-full font-secondaryAndButton bg-primary-10 text-primary-100 rounded-2xl py-1 mb-2 cursor-pointer hover:bg-primary-50 hover:text-white ease-in-out duration-150'>Create Account</button>
-        </div>
+        <x-button behaviour='action' actionType='submit' form='account' content='Create Account' class='min-w-full'></x-button>
     </form>
 @endsection

@@ -44,5 +44,5 @@ Route::post('/threads/{thread}/reply', [ThreadController::class, 'reply'])->midd
 
 // Dev Route Preview
 Route::get('/pageDevelop', function () {
-    return view('errors.500');
+    return view('components.button');
 });

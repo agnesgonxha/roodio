@@ -51,7 +51,7 @@
                 </div>
             @endif
         </div>
-        <button type='submit' form='otp-form' class='text-smallBtn font-bold w-full font-secondaryAndButton bg-primary-10 text-primary-100 rounded-2xl py-1 mb-2 cursor-pointer hover:bg-primary-50 hover:text-white ease-in-out duration-150'>Verify Account</button>
+        <x-button behaviour='action' actionType='submit' form='otp-form' content='Verify Account' class='min-w-full'></x-button>
         <p class='text-micro text-center md:text-small'>
             Don't get the code?
             <button class='font-bold text-secondary-sad-100 hover:text-primary-50 cursor-pointer'> Resend The Code.</button>
