@@ -66,7 +66,7 @@ class AuthController extends Controller
     {
         $validated = $request->validate([
             'fullname' => 'required|max:255',
-            'email'    => 'required|email|max:255',
+            'email'    => 'required|email|max:255|unique:user_details,email',
             'dob'      => 'required|date',
             'gender'   => 'required|in:1,0,null',
             'country'  => 'required|string|exists:regions,id',
@@ -75,6 +75,8 @@ class AuthController extends Controller
         session()->put('register.step1', $validated);
 
         $otpController->send($validated['email']);
+
+        session(['user_verification_passed' => true]);
 
         return redirect()->route('register.validation');
     }
@@ -102,6 +104,7 @@ class AuthController extends Controller
         $session = session('register.step1');
         $verify  = $otpController->verify($session['email'], $request['otp']);
         if ($verify) {
+            session(['otp_passed' => true]);
             return redirect()->route('account');
         } else {
             return back()->withErrors(['otp' => 'Invalid or expired OTP']);
@@ -123,13 +126,14 @@ class AuthController extends Controller
     public function account(Request $request)
     {
         $validated = $request->validate([
-            'username' => 'required|max:25|unique:users,username',
-            'password' => [
+            'username'              => 'required|max:25|unique:users,username',
+            'password'              => [
                 'required',
                 'string',
                 'confirmed',
                 Password::min(8)->letters()->numbers(),
             ],
+            'password_confirmation' => 'required',
         ]);
 
         $user = User::create($validated);

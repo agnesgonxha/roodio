@@ -42,6 +42,7 @@
             <x-slot:options>
                 @forelse($regions as $region)
                     <option value="{{ $region->id }}" {{ old('country') == $region->id ? 'selected' : '' }}>{{ $region->name }}</option>
+                @empty
                 @endforelse
             </x-slot:options>
         </x-inputSelect>

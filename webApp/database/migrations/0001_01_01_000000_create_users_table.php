@@ -15,6 +15,7 @@ return new class extends Migration
             $table->char('id', 10)->primary();
             $table->string('username', 25);
             $table->text('password');
+            $table->integer('role')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
